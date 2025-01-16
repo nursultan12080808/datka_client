@@ -1,4 +1,12 @@
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1050px) {
+    .home_row2{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+@media screen and (max-width: 1000px) {
     .link_head{
         display: none;
     }
@@ -7,8 +15,19 @@
     }
 }
 
+@media screen and (max-width: 850px) {
+    .burger{
+        width: 35px;
+    }
+    .home_row2{
+        grid-template-columns: 1fr;
+    }
+}
 
 @media screen and (max-width: 600px) {
+    .glava img{
+        width: 100%;
+    }
     .nblock{
         display: none;
     }
@@ -26,13 +45,50 @@
         display: block;
         width: 60px; /* Ensure the image is responsive */
     }
-}
-
-
-@media screen and (max-width: 400px) {
+    .home_row {
+        flex-direction: column;
+    }
+    .home_row2{
+        grid-template-columns: 1fr 1fr;
+    }
+    .container_2{
+        max-width: 1200px;
+        width: 90%;
+    }
+    .home_title{
+    padding-top: 20px;
+    }
+    .home_image img{
+        height: 100px;
+    }
     .nav_h1 {
         font-size: 18px;
     }
+    .date-container {
+        padding: 0px 10px 0 0;
+    }
+    .home_image img{
+        padding: 0;
+    }
+    .home_title2{
+        padding-top: 5px;
+    }
+    .home_col1{
+        border-radius: 10px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .home_row2{
+        grid-template-columns: 1fr;
+    }
+    .home_image img{
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 400px) {
     .gerb {
         width: 60px;
     }

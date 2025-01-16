@@ -1,58 +1,110 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Load from '../images/giphy.webp';
-import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Flag from '../images/flag.avif';
 
 const Home = () => {
+    const { t } = useTranslation(); // Используем хук для перевода
 
-    const { t, i18n } = useTranslation(); // Используем хук для перевода
-
-    const [admins, setAdmins] = useState(null); // Изначально null, чтобы показать загрузку
+    const [admins, setAdmins] = useState(null);
+    const [news, setNews] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Выполнение GET-запроса
+        // Загрузка данных админов
         axios.get('https://nursultan.pythonanywhere.com/api/v1/glava/')
-            .then(response => {
-                setAdmins(response.data); // Сохраняем полученные данные в состояние
-                console.log(response.data); // Сохраняем полученные данные в состояние
-            })
-            .catch(err => {
-                setError('Ошибка при загрузке данных');
-                console.error('Error:', err);
-            });
+            .then(response => setAdmins(response.data))
+            .catch(err => setError('Ошибка загрузки данных админов'));
     }, []);
+
+    useEffect(() => {
+        // Загрузка данных новостей
+        axios.get('https://nursultan.pythonanywhere.com/api/v1/news/')
+            .then(response => {
+                setNews(response.data)
+                console.log(response.data);
+            })
+            .catch(err => setError('Ошибка загрузки данных новостей'));
+    }, []);
+
+    // Функция для форматирования даты
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const monthNames = [
+            'ЯНВАРЬ', 'ФЕВРАЛЬ', 'МАРТ', 'АПРЕЛЬ', 'МАЙ', 'ИЮНЬ',
+            'ИЮЛЬ', 'АВГУСТ', 'СЕНТЯБРЬ', 'ОКТЯБРЬ', 'НОЯБРЬ', 'ДЕКАБРЬ'
+        ];
+        const month = monthNames[date.getMonth()];
+        const year = date.getFullYear();
+
+        return { day, month, year };
+    };
 
     return (
         <div>
             {
-                // Если нет данных и нет ошибки, показываем картинку загрузки
-                admins === null && !error ? 
-                    <img className='load' src={Load} alt="Загрузка..." />
-                    :
-                    // Если данные есть, отображаем их
-                    error ? 
+                news === null && admins === null && !error ? (
+                    <img className="load" src={Load} alt="Загрузка..." />
+                ) : error ? (
                     <div className="error">{error}</div>
-                    :
-                    <div className="container">
+                ) : (
+                    <div className="container_2">
                         <div className="home_row">
                             <div className="home_col1">
                                 <div className="glava_title">{t('glava')}</div>
-                                <div className="glava">
-                                    <img src={admins[0].image} alt="" />
+                                {admins && admins[0] && (
+                                    <div className="glava">
+                                        <img src={admins[0].image} alt="" />
+                                        <div className="glava_name">
+                                            <div className="glava_block">
+                                                <div>{admins[0].surname}</div>
+                                                <div>{admins[0].name}</div>
+                                            </div>
+                                            <div>{admins[0].middle_name}</div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="home_col2">
+                                <div className="home_titl2">
+                                    <div className="home_title">— {t('negizgi')}</div>
                                 </div>
-                                <div className="glava_name">
-                                <div className="glava_block">
-                                <div className="">{admins[0].surname}</div> 
-                                <div className="">{admins[0].name}</div>
-                                </div>
-                                <div className="">{admins[0].middle_name}</div>
+                                <div className="home_row2">
+                                    {news && news.length > 0 ? (
+                                        news.map((item, index) => {
+                                            const { day, month, year } = formatDate(item.published_date);
+                                            return (
+                                                <div className="home_item" key={index}>
+                                                    <div className="home_image">
+                                                        <div className="home_img">
+                                                            <img src={item.images[0]?.image || Flag} alt="" />
+                                                            <div className="home_block1">
+                                                                <div className="date-container">
+                                                                    <span className="date-number">{day}</span>
+                                                                    <p className="date-month">{month}</p>
+                                                                    <span className="date-year">{year}</span>
+                                                                </div>
+                                                                <div className="home_col4">
+                                                                    <div className="home_title2">
+                                                                        {item.title || 'Новость без заголовка'}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })
+                                    ) : (
+                                        <div className='home_title'>Нет новостей для отображения</div>
+                                    )}
                                 </div>
                             </div>
-                            <div className="home_col2"></div>
                         </div>
                     </div>
+                )
             }
         </div>
     );
