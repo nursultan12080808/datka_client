@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Load from '../images/giphy.webp';
+import Load from '../images/giphy.webp';    
 import { useTranslation } from 'react-i18next';
 import Flag from '../images/flag.avif';
 
@@ -43,7 +44,7 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <header>
             {
                 news === null && admins === null && !error ? (
                     <img className="load" src={Load} alt="Загрузка..." />
@@ -76,25 +77,27 @@ const Home = () => {
                                         news.map((item, index) => {
                                             const { day, month, year } = formatDate(item.published_date);
                                             return (
-                                                <div className="home_item" key={index}>
-                                                    <div className="home_image">
-                                                        <div className="home_img">
-                                                            <img src={item.images[0]?.image || Flag} alt="" />
-                                                            <div className="home_block1">
-                                                                <div className="date-container">
-                                                                    <span className="date-number">{day}</span>
-                                                                    <p className="date-month">{month}</p>
-                                                                    <span className="date-year">{year}</span>
-                                                                </div>
-                                                                <div className="home_col4">
-                                                                    <div className="home_title2">
-                                                                        {item.title || 'Новость без заголовка'}
+                                                <Link to={`/news/${item.id}/`} className='text_a'>
+                                                    <div className="home_item" key={index}>
+                                                        <div className="home_image">
+                                                            <div className="home_img">
+                                                                <img src={item.images[0]?.image || Flag} alt="" />
+                                                                <div className="home_block1">
+                                                                    <div className="date-container">
+                                                                        <span className="date-number">{day}</span>
+                                                                        <p className="date-month">{month}</p>
+                                                                        <span className="date-year">{year}</span>
+                                                                    </div>
+                                                                    <div className="home_col4">
+                                                                        <div className="home_title2">
+                                                                            {item.title || 'Новость без заголовка'}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </Link>
                                             );
                                         })
                                     ) : (
@@ -106,7 +109,7 @@ const Home = () => {
                     </div>
                 )
             }
-        </div>
+        </header>
     );
 };
 

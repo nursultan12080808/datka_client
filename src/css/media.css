@@ -1,5 +1,17 @@
+@media screen and (max-width: 1110px) {
+    .footer_row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 50px;
+    }
+
+    .footer_col1 {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 1050px) {
-    .home_row2{
+    .home_row2 {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -7,115 +19,233 @@
 
 
 @media screen and (max-width: 1000px) {
-    .link_head{
+    .link_head {
         display: none;
     }
-    .burger{
+
+    .burger {
         display: block;
+    }
+
+    .new_title {
+        font-size: 20px;
+        padding: 0 30px;
+    }
+
+    .new_block {
+        column-gap: 30px;
+    }
+
+    .date-number1 {
+        font-size: 35px;
+    }
+
+    .date-month1,
+    .date-year1 {
+        font-size: 13px;
+    }
+
+    .new_img1 {
+        height: 300px;
     }
 }
 
 @media screen and (max-width: 850px) {
-    .burger{
-        width: 35px;
-    }
-    .home_row2{
+    .row_admins{
         grid-template-columns: 1fr;
     }
+    .burger {
+        width: 35px;
+    }
+
+    .home_row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .footer_row {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+    }
+
+    .footer_title1 {
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+    }
+
+    .glava_title {
+        text-align: start;
+        font-weight: 600;
+        padding: 0 0 10px 0;
+        font-size: 20px;
+        color: var(--title);
+    }
+
+    .glava_name {
+        font-size: 18px;
+    }
+
+    .date-number {
+        font-size: 20px;
+    }
+
+    .footer_col3-col1 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .new_text {
+        font-size: 14px;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
-    .glava img{
+    .new_img1 {
+        height: 250px;
+    }
+
+    .new_title {
+        border: 0;
+        font-size: 15px;
+        padding: 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .new_block {
+        column-gap: 10px;
+        padding: 0 5px 20px 5px;
+    }
+
+    .date-number1 {
+        font-size: 27px;
+    }
+
+    .date-month1,
+    .date-year1 {
+        font-size: 12px;
+    }
+
+    .glava img {
         width: 100%;
     }
-    .nblock{
+
+    .nblock {
         display: none;
     }
-    .nblock1{
+
+    .nblock1 {
         display: flex;
     }
-    .link_row{
+
+    .link_row {
         justify-content: space-between;
     }
-    .nav_col22{
+
+    .nav_col22 {
         display: flex;
         column-gap: 20px;
     }
+
     .load {
         display: block;
-        width: 60px; /* Ensure the image is responsive */
+        width: 60px;
+        /* Ensure the image is responsive */
     }
+
     .home_row {
         flex-direction: column;
     }
-    .home_row2{
+
+    .home_row2 {
         grid-template-columns: 1fr 1fr;
     }
-    .container_2{
+
+    .container_2 {
         max-width: 1200px;
         width: 90%;
     }
-    .home_title{
-    padding-top: 20px;
+
+    .home_title {
+        padding-top: 20px;
     }
-    .home_image img{
+
+    .home_image img {
         height: 100px;
     }
+
     .nav_h1 {
         font-size: 18px;
     }
+
     .date-container {
         padding: 0px 10px 0 0;
     }
-    .home_image img{
+
+    .home_image img {
         padding: 0;
     }
-    .home_title2{
+
+    .home_title2 {
         padding-top: 5px;
     }
-    .home_col1{
+
+    .home_col1 {
         border-radius: 10px;
         padding: 0;
     }
 }
 
 @media screen and (max-width: 520px) {
-    .home_row2{
+    .home_row2 {
         grid-template-columns: 1fr;
     }
-    .home_image img{
+
+    .home_image img {
         height: 140px;
+    }
+    .admin_img img{
+        width: 110px;
+        height: 130px;
+        object-fit: cover;
+    }
+    .admin_name{
+        font-size: 16px;
+        padding: 10px 0 0 0;
     }
 }
 
 @media screen and (max-width: 400px) {
+    .h100 {
+        height: 150px;
+    }
+
     .gerb {
         width: 60px;
     }
+
     .nav_col1 {
         column-gap: 20px;
     }
-    .nav2{
+
+    .nav2 {
         top: 84px;
     }
-    .burger{
+
+    .burger {
         width: 35px;
     }
 }
 
 
-@media screen and (max-width: 400px) {
-    
-}
-@media screen and (max-width: 400px) {
-    
-}
-@media screen and (max-width: 400px) {
-    
-}
-@media screen and (max-width: 400px) {
-    
-}
-@media screen and (max-width: 400px) {
-    
-}
+@media screen and (max-width: 400px) {}
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (max-width: 400px) {}

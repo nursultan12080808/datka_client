@@ -68,6 +68,7 @@ nav {
 
 .flag {
     width: 40px;
+    height: 25px;
 }
 
 .nav_block {
@@ -92,6 +93,7 @@ nav {
 }
 
 .nav2 {
+    z-index: 10;
         top: 94px;
         width: 100%;
         position: fixed;
@@ -405,4 +407,164 @@ nav {
     justify-content: start;
     margin-bottom: 40px;
     margin-top: 2.5px;
+}
+
+/* Убедитесь, что body и html занимают всю высоту */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Главный контейнер страницы */
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота экрана браузера */
+}
+
+/* Контент страницы */
+main {
+    flex: 1; /* Растягивается, чтобы заполнить свободное пространство */
+}
+
+/* Футер */
+footer {
+    background-color: #053979;
+}
+
+.footer_row{
+    padding: 40px 0;
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+}
+
+.footer_col3-block  {
+    column-gap: 20px;
+    display: flex;
+}
+.footer_title{
+    padding-bottom: 10px;
+    line-height: 1.7em;
+    font-size: 14px;
+    display: block;
+    color: white;
+}
+.footer_head{
+    font-weight: 700;
+}
+.footer_title1{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.footer_title1 a{
+    color: white;
+}
+.razrab{
+    background-color: #4285f4;
+}
+.nur_title{
+    color: white;
+    font-size: 13px;
+    padding: 10px 0 ;
+}
+.footer_col1{
+    width: 20%;
+}
+.text_a{
+    text-decoration: none;
+    color: #2E5AA8;
+}
+
+.date-number1 {
+    font-size: 40px; /* Размер шрифта для цифры */
+    font-weight: bold; /* Жирный шрифт для цифры */
+    color: #4285f4; /* Цвет текста (например, синий) */
+}
+
+.date-month1 {
+    display: block; /* Блоковый элемент для размещения на отдельной строке */
+    font-size: 15px; /* Размер шрифта для месяца */
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    color: gray; /* Серый цвет */
+}
+
+.date-year1 {
+    display: block; /* Блоковый элемент для новой строки */
+    font-size: 15px; /* Размер шрифта для года */
+    font-weight: 500;
+    color: gray; /* Серый цвет */
+}
+
+
+.new_block{
+    padding: 0px 20px 40px 20px;
+    column-gap: 30px;
+    display: flex;
+    align-items: center;
+}
+.new_title{
+    font-weight: 700;
+    font-size: 24px;
+    color: #333;
+    padding: 0 50px;
+    border-left: 1px solid rgb(205, 205, 205);
+}
+
+
+.new_img1{
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+.new_block2{
+    column-gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.new_text p {
+    padding: 0;
+}
+.new_text{
+    padding: 20px 0;
+    color: black;
+    font-weight: 600;
+}
+.swiper-button-prev, .swiper-button-next{
+    color: #053979;
+}
+
+.row_admins{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.admin_img img{
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+}
+.admin{
+    margin-bottom: 50px;
+    display: flex;
+    column-gap: 10px;
+}
+.admin_block{
+    display: flex;
+    flex-direction: column;
+}
+.admin_name{
+    padding: 20px 0 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+.admin_job{
+    margin-bottom: 10px;
+    font-size: 14px;
 }

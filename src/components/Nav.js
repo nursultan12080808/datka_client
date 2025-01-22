@@ -1,5 +1,6 @@
 import React from 'react';
 import Gerb from '../images/gerb.png';
+import { Link } from 'react-router-dom';
 import Flag from '../images/flag.avif';
 import Flag1 from '../images/flag1.jpg';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +36,7 @@ const Nav = () => {
                     <div className="nav_row">
                         <div className="nav_col1">
                             <div className="">
-                                <img className='gerb' src={Gerb} alt="Герб" />
+                            <Link to={"/"}><img className='gerb' src={Gerb} alt="Герб" /></Link>
                             </div>
                             <div className="nav_h1">{t('title')} <br /> {t('title1')}</div>
                         </div>
@@ -59,7 +60,7 @@ const Nav = () => {
                             <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
                             <label for="burger-checkbox" class="burger"></label>
                             <ul class="menu-list">
-                                <li><a href="#" class="menu-item">{t('glvanoe')}</a></li>
+                                <li><Link to={"/"} class="menu-item">{t('glvanoe')}</Link></li>
                                 <li>
                                     <a
                                         href="#"
@@ -70,9 +71,9 @@ const Nav = () => {
                                         {isOpen && (
                                             <div className="link_blockk1">
                                                 {/* Внутренние ссылки (если используются React Router) */}
-                                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                                    Руководство
-                                                </a>
+                                                <Link to={"rucovodstvo/"}>
+                                                    {t("jet")}
+                                                </Link>
                                                 <a href="#">{t('taryh')}</a>
                                                 <a href="#">{t('kabyl')}</a>
                                             </div>
@@ -95,7 +96,7 @@ const Nav = () => {
                                         )}
                                     </a>
                                 </li>
-                                <li><a href="#" class="menu-item">Постановление</a></li>
+                                <li><a href="#" class="menu-item">{t('toktom')}</a></li>
                                 <li><a href="#" class="menu-item">{t('new')}</a></li>
                                 <li><a href="#" class="menu-item">{t('contact')}</a></li>
                             </ul>
@@ -110,11 +111,11 @@ const Nav = () => {
                                 <img className='flag' src={Flag} alt="Флаг КЖ" />
                             </div>
                         </div>
-                        <div className="link_head"><a href="#">{t('glvanoe')}</a></div>
+                        <div className="link_head"><Link to={"/"}>{t('glvanoe')}</Link></div>
                         <div className="link_head link1">
                             <a href="#">{t('okmot')} ⮟</a>
                             <div className="link_head link_block1">
-                                <a href="#">{t('jet')}</a>
+                                <Link to={"rucovodstvo/"}>{t('jet')}</Link>
                                 <a href="#">{t('taryh')}</a>
                                 <a href="#">{t('kabyl')}</a>
                             </div>
