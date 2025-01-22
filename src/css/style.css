@@ -104,11 +104,31 @@ nav {
     padding: 10px 0;
     position: relative;
     display: flex;
-    column-gap: 25px;
+    column-gap: 30px;
     align-items: center;
 }
 
+.white_box{
+    padding-top: 1px;
+    padding-right: 5px;
+    position: absolute;
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    z-index: 2; /* Должно быть выше меню */
+    transition: 0.3s;
+}
+
+
+
 .link_row a {
+    position: relative;
     font-size: 16px;
     text-decoration: none;
     color: #ecf0f1;
@@ -234,6 +254,9 @@ nav {
 
 .burger-checkbox:checked~.menu-list {
     transform: translateX(0);
+}
+.tr100{
+    transform: translateX(-1000%);
 }
 
 

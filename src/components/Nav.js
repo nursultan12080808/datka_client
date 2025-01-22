@@ -5,6 +5,7 @@ import Flag from '../images/flag.avif';
 import Flag1 from '../images/flag1.jpg';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import 'boxicons'
 
 
 const Nav = () => {
@@ -27,10 +28,34 @@ const Nav = () => {
         setIsOpen1((prev) => !prev);  // Переключаем состояние
     };
 
+    const [blur, setBlur] = useState(false)
+
+    const defBLur = (blur1) => {
+        if(!blur1){
+            let blur2 = document.getElementById('blur')
+            blur2.className = "blur"
+            setBlur(!blur1)
+        }else{
+            let blur2 = document.getElementById('blur')
+            blur2.className = ""
+            setBlur(!blur1)
+        }
+    }
+    const defBLur1 = (blur1) => {
+        if(blur1){
+            let blur2 = document.getElementById('blur')
+            blur2.className = ""
+            setBlur(!blur1)
+        }else{
+            let blur2 = document.getElementById('blur')
+            blur2.className = "blur"
+            setBlur(!blur1)
+        }
+    }
     return (
         <div>
+            <label for="burger-checkbox" id='blur' onClick={() => defBLur1(blur)} className=""></label>
             <div className="h100"></div>
-            <div className="back"></div>
             <nav>
                 <div className="container">
                     <div className="nav_row">
@@ -58,8 +83,8 @@ const Nav = () => {
                     <div className="link_row">
                         <div class="menu">
                             <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
-                            <label for="burger-checkbox" class="burger"></label>
-                            <ul class="menu-list">
+                            <label onClick={() => defBLur(blur)} for="burger-checkbox" class="burger"></label>
+                            <ul class="menu-list" id='menu-list'>
                                 <li><Link to={"/"} class="menu-item">{t('glvanoe')}</Link></li>
                                 <li>
                                     <a
@@ -67,7 +92,7 @@ const Nav = () => {
                                         className={`menu-item ${isOpen ? 'active' : ''}`}
                                         onClick={handleClick}
                                     >
-                                        {t('okmot')} ⮟
+                                        {t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen && (
                                             <div className="link_blockk1">
                                                 {/* Внутренние ссылки (если используются React Router) */}
@@ -87,7 +112,7 @@ const Nav = () => {
                                         className={`menu-item okmot1`}
                                         onClick={handleClick1} // Обработчик клика
                                     >
-                                        {t("earth")} ⮟
+                                        {t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen1 && (
                                             <div className="link_blockk2">
                                                 <a href="#">{t('cow')}</a>
@@ -113,7 +138,7 @@ const Nav = () => {
                         </div>
                         <div className="link_head"><Link to={"/"}>{t('glvanoe')}</Link></div>
                         <div className="link_head link1">
-                            <a href="#">{t('okmot')} ⮟</a>
+                            <a href="#">{t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></a>
                             <div className="link_head link_block1">
                                 <Link to={"rucovodstvo/"}>{t('jet')}</Link>
                                 <a href="#">{t('taryh')}</a>
@@ -122,7 +147,7 @@ const Nav = () => {
                         </div>
                         <div className="link_head"><a href="#">{t('cadyr')}</a></div>
                         <div className="link_head link2">
-                            <a href="#">{t("earth")} ⮟</a>
+                            <a href="#">{t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></a>
                             <div className="link_block2">
                                 <a href="#">{t('cow')}</a>
                                 <a href="#">{t('gov_earth')}</a>
