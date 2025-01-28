@@ -5,7 +5,7 @@ import Load from '../images/giphy.webp';
 import { useTranslation } from 'react-i18next';
 import Flag from '../images/flag.avif';
 
-const Home = () => {
+const Home = ({ language, setLanguage }) => {
     const { t } = useTranslation(); // Используем хук для перевода
 
     const [admins, setAdmins] = useState(null);
@@ -14,17 +14,16 @@ const Home = () => {
 
     useEffect(() => {
         // Загрузка данных админов
-        axios.get('https://nursultan.pythonanywhere.com/api/v1/glava/')
+        axios.get('https://aylokmot.pythonanywhere.com/api/v1/glava/')
             .then(response => setAdmins(response.data))
             .catch(err => setError('Ошибка загрузки данных админов'));
     }, []);
 
     useEffect(() => {
         // Загрузка данных новостей
-        axios.get('https://nursultan.pythonanywhere.com/api/v1/news/')
+        axios.get('https://aylokmot.pythonanywhere.com/api/v1/news/')
             .then(response => {
-                setNews(response.data)
-                console.log(response.data);
+                setNews(response.data.slice(0, 6))
             })
             .catch(err => setError('Ошибка загрузки данных новостей'));
     }, []);
@@ -49,7 +48,7 @@ const Home = () => {
                 news === null && admins === null && !error ? (
                     <img className="load" src={Load} alt="Загрузка..." />
                 ) : error ? (
-                    <div className="error">{error}</div>
+                    <img className="load" src={Load} alt="Загрузка..." />
                 ) : (
                     <div className="container_2">
                         <div className="home_row">
@@ -90,7 +89,12 @@ const Home = () => {
                                                                     </div>
                                                                     <div className="home_col4">
                                                                         <div className="home_title2">
-                                                                            {item.title || 'Новость без заголовка'}
+                                                                            {language == "ru"
+                                                                            ?
+                                                                            item.title_ru || 'Новость без заголовка'
+                                                                            :
+                                                                            item.title_kg || 'Новость без заголовка'
+                                                                            }
                                                                         </div>
                                                                     </div>
                                                                 </div>

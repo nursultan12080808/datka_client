@@ -8,6 +8,9 @@
     .footer_col1 {
         width: 100%;
     }
+    .row_admins{
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 1050px) {
@@ -24,6 +27,9 @@
     }
 
     .burger {
+        display: block;
+    }
+    .menu {
         display: block;
     }
 
@@ -51,9 +57,6 @@
 }
 
 @media screen and (max-width: 850px) {
-    .row_admins{
-        grid-template-columns: 1fr;
-    }
     .burger {
         width: 35px;
     }
@@ -102,7 +105,17 @@
 
 }
 
+@media screen and (max-width: 710px) {
+    .row_admins{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
 @media screen and (max-width: 600px) {
+    .post_row{
+        grid-template-columns: 2fr 1fr 4fr;
+    }
     .new_img1 {
         height: 250px;
     }
@@ -199,6 +212,13 @@
 }
 
 @media screen and (max-width: 520px) {
+
+    .admin_job {
+        font-size: 17px;
+    }
+    .admin_name{
+        font-size: 16px;
+    }
     .home_row2 {
         grid-template-columns: 1fr;
     }
@@ -206,15 +226,10 @@
     .home_image img {
         height: 140px;
     }
-    .admin_img img{
-        width: 110px;
-        height: 130px;
-        object-fit: cover;
+    .admin{
+        width: 300px;
     }
-    .admin_name{
-        font-size: 16px;
-        padding: 10px 0 0 0;
-    }
+    
 }
 
 @media screen and (max-width: 400px) {

@@ -8,11 +8,12 @@ import { useState } from 'react';
 import 'boxicons'
 
 
-const Nav = () => {
+const Nav = ({ language, setLanguage }) => {
 
     const { t, i18n } = useTranslation(); // Используем хук для перевода
 
     const changeLanguage = (lang) => {
+        setLanguage(lang)
         i18n.changeLanguage(lang); // Изменяем язык
     };
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,6 @@ const Nav = () => {
     const [isOpen1, setIsOpen1] = useState(false);
 
     const handleClick1 = (event) => {
-        event.preventDefault();  // Останавливаем переход по ссылке
         setIsOpen1((prev) => !prev);  // Переключаем состояние
     };
 
@@ -95,7 +95,6 @@ const Nav = () => {
                                         {t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen && (
                                             <div className="link_blockk1">
-                                                {/* Внутренние ссылки (если используются React Router) */}
                                                 <Link to={"rucovodstvo/"}>
                                                     {t("jet")}
                                                 </Link>
@@ -105,24 +104,24 @@ const Nav = () => {
                                         )}
                                     </a>
                                 </li>
-                                <li><a href="#" class="menu-item">{t('cadyr')}</a></li>
+                                <li><Link to={"/cadr/"} class="menu-item">{t('cadyr')}</Link></li>
                                 <li>
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to={"/earths/"}
                                         className={`menu-item okmot1`}
                                         onClick={handleClick1} // Обработчик клика
                                     >
                                         {t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen1 && (
                                             <div className="link_blockk2">
-                                                <a href="#">{t('cow')}</a>
-                                                <a href="#">{t('gov_earth')}</a>
+                                                <Link to={"/selhoz/"}>{t('cow')}</Link>
+                                                <Link to={"/gos_zemli/"}>{t('gov_earth')}</Link>
                                             </div>
                                         )}
-                                    </a>
+                                    </Link>
                                 </li>
-                                <li><a href="#" class="menu-item">{t('toktom')}</a></li>
-                                <li><a href="#" class="menu-item">{t('new')}</a></li>
+                                <li><Link to={"/postanovlenie/"} className={"menu-item"}>{t('toktom')}</Link></li>
+                                <li><Link to={"/news/"} class="menu-item">{t('new')}</Link></li>
                                 <li><a href="#" class="menu-item">{t('contact')}</a></li>
                             </ul>
                         </div>
@@ -145,16 +144,16 @@ const Nav = () => {
                                 <a href="#">{t('kabyl')}</a>
                             </div>
                         </div>
-                        <div className="link_head"><a href="#">{t('cadyr')}</a></div>
+                        <div className="link_head"><Link to={"/cadr/"}>{t('cadyr')}</Link></div>
                         <div className="link_head link2">
-                            <a href="#">{t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></a>
+                            <Link to={'/earths'}>{t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></Link>
                             <div className="link_block2">
-                                <a href="#">{t('cow')}</a>
-                                <a href="#">{t('gov_earth')}</a>
+                                <Link to={"/selhoz/"}>{t('cow')}</Link>
+                                <Link to={"/gos_zemli/"}>{t('gov_earth')}</Link>
                             </div>
                         </div>
-                        <div className="link_head"><a href="#">{t('toktom')}</a></div>
-                        <div className="link_head"><a href="#">{t('new')}</a></div>
+                        <div className="link_head"><Link to={"/postanovlenie/"}>{t('toktom')}</Link></div>
+                        <div className="link_head"><Link to={"/news/"}>{t('new')}</Link></div>
                         <div className="link_head"><a href="#">{t('contact')}</a></div>
                     </div>
                 </div>

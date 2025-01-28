@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Load from '../images/giphy.webp';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const News = () => {
-    const { id } = useParams(); 
+const News = ({ language, setLanguage }) => {
+    const { id } = useParams();
     const [newsItem, setNewsItem] = useState(null);
 
     useEffect(() => {
-        fetch(`https://nursultan.pythonanywhere.com/api/v1/news/${id}/`)
+        fetch(`https://aylokmot.pythonanywhere.com/api/v1/news/${id}/`)
             .then(response => response.json())
             .then(data => setNewsItem(data))
             .catch(error => console.error('Ошибка загрузки:', error));
@@ -48,7 +48,14 @@ const News = () => {
                             <p className="date-month1">{month}</p>
                             <span className="date-year1">{year}</span>
                         </div>
-                        <div className="new_title">{newsItem.title}</div>
+                        <div className="new_title">
+                            {language == "ru"
+                                ?
+                                newsItem.title_ru || 'Новость без заголовка'
+                                :
+                                newsItem.title_kg || 'Новость без заголовка'
+                            }
+                        </div>
                     </div>
                     <div className="new_block2">
                         <div className="new_img">
@@ -67,7 +74,11 @@ const News = () => {
                                 ))}
                             </Swiper>
                         </div>
-                        <div className="new_text" dangerouslySetInnerHTML={{ __html: newsItem.content }} />
+                        <div className="new_text" dangerouslySetInnerHTML={{ __html: language == "ru"
+                                ?
+                                newsItem.content_ru || 'Новость без заголовка'
+                                :
+                                newsItem.content_kg || 'Новость без заголовка'}} />
                     </div>
                 </div>
             </div>

@@ -33,14 +33,14 @@ const Footer = () => {
                                 <Link className="footer_title" to={"/rucovodstvo"}>{t('jet')}</Link>
                                 <a href='#' className="footer_title">{t('taryh')}</a>
                                 <a href='#' className="footer_title">{t('kabyl')}</a>
-                                <a href='#' className="footer_title">{t('cadyr')}</a>
+                                <Link to={"/cadr/"} className="footer_title">{t('cadyr')}</Link>
                             </div>
                             <div className="footer_col3-col1">
-                                <a href='#' className="footer_title">{t("earth")}</a>
-                                <a href='#' className="footer_title">{t('cow')}</a>
-                                <a href='#' className="footer_title">{t('gov_earth')}</a>
-                                <a href='#' className="footer_title">{t('toktom')}</a>
-                                <a href='#' className="footer_title">{t('new')}</a>
+                                <Link to={"/earths/"} className="footer_title">{t("earth")}</Link>
+                                <Link to={"/selhoz/"} className="footer_title">{t('cow')}</Link>
+                                <Link to={"/gos_zemli/"} className="footer_title">{t('gov_earth')}</Link>
+                                <Link to={"/postanovlenie/"} className="footer_title">{t('toktom')}</Link>
+                                <Link to={"/news/"} className="footer_title">{t('new')}</Link>
                                 <a href='#' className="footer_title">{t('contact')}</a>
                             </div>
                         </div>
