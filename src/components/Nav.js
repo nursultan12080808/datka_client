@@ -17,44 +17,41 @@ const Nav = ({ language, setLanguage }) => {
         i18n.changeLanguage(lang); // Изменяем язык
     };
     const [isOpen, setIsOpen] = useState(false);
+    const [blur, setBlur] = useState(false)
 
     const handleClick = (e) => {
-        // Преобразуем нажатие на ссылку в открытие или закрытие меню
-        setIsOpen(!isOpen);
+        if(isOpen == false){
+            e.preventDefault();
+            setIsOpen(true);  // Переключаем состояние
+        }{
+            setIsOpen(!isOpen);
+        }
     };
     const [isOpen1, setIsOpen1] = useState(false);
 
-    const handleClick1 = (event) => {
-        setIsOpen1((prev) => !prev);  // Переключаем состояние
+    const handleClick1 = (e) => {
+        if(isOpen1 == false){
+            e.preventDefault();
+            setIsOpen1(true);  // Переключаем состояние
+        }{
+            setIsOpen1(!isOpen1);
+        }
     };
 
-    const [blur, setBlur] = useState(false)
+    const closeMenu = (blur) => {
+        const burgerCheckbox = document.getElementById('burger-checkbox');
+        if (burgerCheckbox) {
+            burgerCheckbox.checked = false; // Закрываем бургер-меню
+        }
+        setIsOpen(false);  
+        setIsOpen1(false); // Закрываем выпадающее меню "earth"
+    };
 
-    const defBLur = (blur1) => {
-        if(!blur1){
-            let blur2 = document.getElementById('blur')
-            blur2.className = "blur"
-            setBlur(!blur1)
-        }else{
-            let blur2 = document.getElementById('blur')
-            blur2.className = ""
-            setBlur(!blur1)
-        }
-    }
-    const defBLur1 = (blur1) => {
-        if(blur1){
-            let blur2 = document.getElementById('blur')
-            blur2.className = ""
-            setBlur(!blur1)
-        }else{
-            let blur2 = document.getElementById('blur')
-            blur2.className = "blur"
-            setBlur(!blur1)
-        }
-    }
+
+    
     return (
         <div>
-            <label for="burger-checkbox" id='blur' onClick={() => defBLur1(blur)} className=""></label>
+            <label for="burger-checkbox" id='blur123' className=""></label>
             <div className="h100"></div>
             <nav>
                 <div className="container">
@@ -83,9 +80,9 @@ const Nav = ({ language, setLanguage }) => {
                     <div className="link_row">
                         <div class="menu">
                             <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
-                            <label onClick={() => defBLur(blur)} for="burger-checkbox" class="burger"></label>
+                            <label for="burger-checkbox" class="burger"></label>
                             <ul class="menu-list" id='menu-list'>
-                                <li><Link to={"/"} class="menu-item">{t('glvanoe')}</Link></li>
+                                <li><Link onClick={() => closeMenu()} to={"/"} class="menu-item">{t('glvanoe')}</Link></li>
                                 <li>
                                     <a
                                         href="#"
@@ -95,16 +92,16 @@ const Nav = ({ language, setLanguage }) => {
                                         {t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen && (
                                             <div className="link_blockk1">
-                                                <Link to={"rucovodstvo/"}>
+                                                <Link onClick={() => closeMenu()} to={"rucovodstvo/"}>
                                                     {t("jet")}
                                                 </Link>
-                                                <a href="#">{t('taryh')}</a>
-                                                <a href="#">{t('kabyl')}</a>
+                                                <Link onClick={() => closeMenu()} to={"/history/"} >{t('taryh')}</Link>
+                                                <Link onClick={() => closeMenu()} to={"/electronaya-priemnaya/"}>{t('kabyl')}</Link>
                                             </div>
                                         )}
                                     </a>
                                 </li>
-                                <li><Link to={"/cadr/"} class="menu-item">{t('cadyr')}</Link></li>
+                                <li><Link onClick={() => closeMenu()} to={"/cadr/"} class="menu-item">{t('cadyr')}</Link></li>
                                 <li>
                                     <Link
                                         to={"/earths/"}
@@ -114,15 +111,15 @@ const Nav = ({ language, setLanguage }) => {
                                         {t("earth")} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen1 && (
                                             <div className="link_blockk2">
-                                                <Link to={"/selhoz/"}>{t('cow')}</Link>
-                                                <Link to={"/gos_zemli/"}>{t('gov_earth')}</Link>
+                                                <Link onClick={() => closeMenu()} to={"/selhoz/"}>{t('cow')}</Link>
+                                                <Link onClick={() => closeMenu()} to={"/gos_zemli/"}>{t('gov_earth')}</Link>
                                             </div>
                                         )}
                                     </Link>
                                 </li>
-                                <li><Link to={"/postanovlenie/"} className={"menu-item"}>{t('toktom')}</Link></li>
-                                <li><Link to={"/news/"} class="menu-item">{t('new')}</Link></li>
-                                <li><a href="#" class="menu-item">{t('contact')}</a></li>
+                                <li><Link onClick={() => closeMenu()} to={"/postanovlenie/"} className={"menu-item"}>{t('toktom')}</Link></li>
+                                <li><Link onClick={() => closeMenu()} to={"/news/"} class="menu-item">{t('new')}</Link></li>
+                                <li><Link onClick={() => closeMenu()} to={"/contact/"} class="menu-item">{t('contact')}</Link></li>
                             </ul>
                         </div>
                         <div className="nav_col22">
@@ -139,9 +136,9 @@ const Nav = ({ language, setLanguage }) => {
                         <div className="link_head link1">
                             <a href="#">{t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></a>
                             <div className="link_head link_block1">
-                                <Link to={"rucovodstvo/"}>{t('jet')}</Link>
-                                <a href="#">{t('taryh')}</a>
-                                <a href="#">{t('kabyl')}</a>
+                                <Link to={"/rucovodstvo/"}>{t('jet')}</Link>
+                                <Link to={"/history/"}>{t('taryh')}</Link>
+                                <Link to={"/electronaya-priemnaya/"}>{t('kabyl')}</Link>
                             </div>
                         </div>
                         <div className="link_head"><Link to={"/cadr/"}>{t('cadyr')}</Link></div>
@@ -154,7 +151,7 @@ const Nav = ({ language, setLanguage }) => {
                         </div>
                         <div className="link_head"><Link to={"/postanovlenie/"}>{t('toktom')}</Link></div>
                         <div className="link_head"><Link to={"/news/"}>{t('new')}</Link></div>
-                        <div className="link_head"><a href="#">{t('contact')}</a></div>
+                        <div className="link_head"><Link to={"/contact/"}>{t('contact')}</Link></div>
                     </div>
                 </div>
             </div>

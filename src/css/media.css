@@ -57,6 +57,19 @@
 }
 
 @media screen and (max-width: 850px) {
+
+    .row_contact{
+        flex-direction: column;
+    }
+    .col1_contact{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .col2_contact{
+        width: 100%;
+    }
+
     .burger {
         width: 35px;
     }
@@ -113,6 +126,17 @@
 }
 
 @media screen and (max-width: 600px) {
+
+    .elec_row{
+        flex-direction: column;
+    }
+    .elec_col1{
+        width: 100%;
+    }
+    .elec_col2{
+        width: 100%;
+    }
+
     .post_row{
         grid-template-columns: 2fr 1fr 4fr;
     }
@@ -156,6 +180,7 @@
     .link_row {
         justify-content: space-between;
     }
+
 
     .nav_col22 {
         display: flex;

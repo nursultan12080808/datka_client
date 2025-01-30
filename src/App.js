@@ -15,6 +15,9 @@ import Postanovlenie from './components/Postanovlenie';
 import Postanovlenieone from './components/Postanovlenieone';
 import ScrollToTop from './components/ScrollToTop';
 import Novosty from './components/Novosty';
+import Contakty from './components/Contakty';
+import History from './components/History';
+import Electr from './components/Electr';
 
 
 function App() {
@@ -40,6 +43,10 @@ function App() {
           <Route path="/postanovlenie/:id/" element={<Postanovlenieone language={language} setLanguage={setLanguage} />} />
           <Route path="/news/" element={<Novosty language={language} setLanguage={setLanguage} />} />
           <Route path="/news/:id/" element={<News language={language} setLanguage={setLanguage}/>} />
+          <Route path="/contact/" element={<Contakty language={language} setLanguage={setLanguage} />} />
+          <Route path="/history/" element={<History language={language} setLanguage={setLanguage} />} />
+          <Route path="/electronaya-priemnaya/" element={<Electr language={language} setLanguage={setLanguage} />} />
+
         </Routes>
         <Footer language={language} setLanguage={setLanguage}/>
       </div>

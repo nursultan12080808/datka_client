@@ -31,8 +31,8 @@ const Footer = () => {
                                 <Link className="footer_title" to={"/"}>{t('glvanoe')}</Link>
                                 <a href='#' className="footer_title">{t('okmot')}</a>
                                 <Link className="footer_title" to={"/rucovodstvo"}>{t('jet')}</Link>
-                                <a href='#' className="footer_title">{t('taryh')}</a>
-                                <a href='#' className="footer_title">{t('kabyl')}</a>
+                                <Link to={"/history/"} className="footer_title">{t('taryh')}</Link>
+                                <Link to={"/electronaya-priemnaya/"} className="footer_title">{t('kabyl')}</Link>
                                 <Link to={"/cadr/"} className="footer_title">{t('cadyr')}</Link>
                             </div>
                             <div className="footer_col3-col1">
@@ -41,7 +41,7 @@ const Footer = () => {
                                 <Link to={"/gos_zemli/"} className="footer_title">{t('gov_earth')}</Link>
                                 <Link to={"/postanovlenie/"} className="footer_title">{t('toktom')}</Link>
                                 <Link to={"/news/"} className="footer_title">{t('new')}</Link>
-                                <a href='#' className="footer_title">{t('contact')}</a>
+                                <Link to={"/contact/"} className="footer_title">{t('contact')}</Link>
                             </div>
                         </div>
                     </div>
