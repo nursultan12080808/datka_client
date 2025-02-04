@@ -18,7 +18,7 @@ const Novosty = ({language}) => {
 
     useEffect(() => {
         // Загрузка данных новостей
-        axios.get('http://195.38.164.98:8000/api/v1/news/')
+        axios.get('https://datka-karasuu.gov.kg:8000/api/v1/news/')
             .then(response => {
                 setNews(response.data.slice(0, 6))
             })

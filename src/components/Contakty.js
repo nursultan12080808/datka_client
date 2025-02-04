@@ -10,7 +10,7 @@ const Contakty = ({language}) => {
     const [admins, setAdmins] = useState([]);
 
     useEffect(() => {
-        fetch(`http://195.38.164.98:8000/api/v1/administrations/`)
+        fetch(`https://datka-karasuu.gov.kg:8000/api/v1/administrations/`)
             .then(response => response.json())
             .then(data => setAdmins(data))
             .catch(error => console.error('Ошибка загрузки:', error));

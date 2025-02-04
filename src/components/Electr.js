@@ -19,7 +19,7 @@ const Electr = ({ language }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://195.38.164.98:8000/api/v1/contact/', {
+        const response = await fetch('https://datka-karasuu.gov.kg:8000/api/v1/contact/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)

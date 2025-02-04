@@ -12,7 +12,7 @@ const Postanovlenieone = ({ language }) => {
 
 
     useEffect(() => {
-        fetch(`http://195.38.164.98:8000/api/v1/resolutions/${id}/`)
+        fetch(`https://datka-karasuu.gov.kg:8000/api/v1/resolutions/${id}/`)
             .then(response => response.json())
             .then(data => setNewsItem(data))
             .catch(error => console.error('Ошибка загрузки:', error));

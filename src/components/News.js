@@ -13,7 +13,7 @@ const News = ({ language, setLanguage }) => {
     const [newsItem, setNewsItem] = useState(null);
 
     useEffect(() => {
-        fetch(`http://195.38.164.98:8000/api/v1/news/${id}/`)
+        fetch(`https://datka-karasuu.gov.kg:8000/api/v1/news/${id}/`)
             .then(response => response.json())
             .then(data => setNewsItem(data))
             .catch(error => console.error('Ошибка загрузки:', error));

@@ -8,7 +8,7 @@ const Cadr = ({ language, setLanguage }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        fetch(`http://195.38.164.98:8000/api/v1/jobs/`)
+        fetch(`https://datka-karasuu.gov.kg:8000/api/v1/jobs/`)
             .then(response => response.json())
             .then(data => setCadr(data))
             .catch(error => console.error('Ошибка загрузки:', error));

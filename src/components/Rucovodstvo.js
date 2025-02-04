@@ -9,7 +9,7 @@ const Rucovodstvo = ({language, setLanguage}) => {
     const [admins, setAdmins] = useState(null);
 
     useEffect(() => {
-        fetch(`http://195.38.164.98:8000/api/v1/admins/`)
+        fetch(`https://datka-karasuu.gov.kg:8000/api/v1/admins/`)
             .then(response => response.json())
             .then(data => setAdmins(data))
             .catch(error => console.error('Ошибка загрузки:', error));

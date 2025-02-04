@@ -14,14 +14,14 @@ const Home = ({ language, setLanguage }) => {
 
     useEffect(() => {
         // Загрузка данных админов
-        axios.get('http://195.38.164.98:8000/api/v1/glava/')
+        axios.get('https://datka-karasuu.gov.kg:8000/api/v1/glava/')
             .then(response => setAdmins(response.data))
             .catch(err => setError('Ошибка загрузки данных админов'));
     }, []);
 
     useEffect(() => {
         // Загрузка данных новостей
-        axios.get('http://195.38.164.98:8000/api/v1/news/')
+        axios.get('https://datka-karasuu.gov.kg:8000/api/v1/news/')
             .then(response => {
                 setNews(response.data.slice(0, 6))
             })
