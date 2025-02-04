@@ -84,22 +84,20 @@ const Nav = ({ language, setLanguage }) => {
                             <ul class="menu-list" id='menu-list'>
                                 <li><Link onClick={() => closeMenu()} to={"/"} class="menu-item">{t('glvanoe')}</Link></li>
                                 <li>
-                                    <a
+                                    <Link
+                                        to={"rucovodstvo/"}
                                         href="#"
                                         className={`menu-item ${isOpen ? 'active' : ''}`}
                                         onClick={handleClick}
                                     >
-                                        {t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
+                                        {t('jet')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon>
                                         {isOpen && (
                                             <div className="link_blockk1">
-                                                <Link onClick={() => closeMenu()} to={"rucovodstvo/"}>
-                                                    {t("jet")}
-                                                </Link>
                                                 <Link onClick={() => closeMenu()} to={"/history/"} >{t('taryh')}</Link>
                                                 <Link onClick={() => closeMenu()} to={"/electronaya-priemnaya/"}>{t('kabyl')}</Link>
                                             </div>
                                         )}
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li><Link onClick={() => closeMenu()} to={"/cadr/"} class="menu-item">{t('cadyr')}</Link></li>
                                 <li>
@@ -134,9 +132,8 @@ const Nav = ({ language, setLanguage }) => {
                         </div>
                         <div className="link_head"><Link to={"/"}>{t('glvanoe')}</Link></div>
                         <div className="link_head link1">
-                            <a href="#">{t('okmot')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></a>
+                            <Link to={"/rucovodstvo/"} href="#">{t('jet')} <box-icon className="white_box" color="#ffffff" type='solid' name='chevron-down'></box-icon></Link>
                             <div className="link_head link_block1">
-                                <Link to={"/rucovodstvo/"}>{t('jet')}</Link>
                                 <Link to={"/history/"}>{t('taryh')}</Link>
                                 <Link to={"/electronaya-priemnaya/"}>{t('kabyl')}</Link>
                             </div>
