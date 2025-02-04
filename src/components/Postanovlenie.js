@@ -14,7 +14,7 @@ const Postanovlenie = ({ language, setLanguage }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(`https://aylokmot.pythonanywhere.com/api/v1/resolutions/`)
+        fetch(`http://195.38.164.98:8000/api/v1/resolutions/`)
             .then(response => response.json())
             .then(data => setResolutions(data))
             .catch(error => console.error('Ошибка загрузки:', error));

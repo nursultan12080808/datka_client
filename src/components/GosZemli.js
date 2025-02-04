@@ -9,7 +9,7 @@ const GosZemli = ({ language, setLanguage }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        fetch(`https://aylokmot.pythonanywhere.com/api/v1/statelands/`)
+        fetch(`http://195.38.164.98:8000/api/v1/statelands/`)
             .then(response => response.json())
             .then(data => setCadr(data))
             .catch(error => console.error('Ошибка загрузки:', error));

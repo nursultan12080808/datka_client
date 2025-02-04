@@ -10,7 +10,7 @@ const Contakty = ({language}) => {
     const [admins, setAdmins] = useState([]);
 
     useEffect(() => {
-        fetch(`https://aylokmot.pythonanywhere.com/api/v1/administrations/`)
+        fetch(`http://195.38.164.98:8000/api/v1/administrations/`)
             .then(response => response.json())
             .then(data => setAdmins(data))
             .catch(error => console.error('Ошибка загрузки:', error));

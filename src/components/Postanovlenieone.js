@@ -12,7 +12,7 @@ const Postanovlenieone = ({ language }) => {
 
 
     useEffect(() => {
-        fetch(`https://aylokmot.pythonanywhere.com/api/v1/resolutions/${id}/`)
+        fetch(`http://195.38.164.98:8000/api/v1/resolutions/${id}/`)
             .then(response => response.json())
             .then(data => setNewsItem(data))
             .catch(error => console.error('Ошибка загрузки:', error));

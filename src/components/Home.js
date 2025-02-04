@@ -14,14 +14,14 @@ const Home = ({ language, setLanguage }) => {
 
     useEffect(() => {
         // Загрузка данных админов
-        axios.get('https://aylokmot.pythonanywhere.com/api/v1/glava/')
+        axios.get('http://195.38.164.98:8000/api/v1/glava/')
             .then(response => setAdmins(response.data))
             .catch(err => setError('Ошибка загрузки данных админов'));
     }, []);
 
     useEffect(() => {
         // Загрузка данных новостей
-        axios.get('https://aylokmot.pythonanywhere.com/api/v1/news/')
+        axios.get('http://195.38.164.98:8000/api/v1/news/')
             .then(response => {
                 setNews(response.data.slice(0, 6))
             })
