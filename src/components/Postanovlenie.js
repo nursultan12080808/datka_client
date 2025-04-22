@@ -20,7 +20,7 @@ const Postanovlenie = ({ language, setLanguage }) => {
             .catch(error => console.error('Ошибка загрузки:', error));
     }, []);
 
-    
+
     const { t } = useTranslation();
 
     if (!resolutions) {
@@ -56,9 +56,14 @@ const Postanovlenie = ({ language, setLanguage }) => {
                                 <div className="post1 post_date">{formatDate(item.resolution_date)}</div>
                                 <div className="post2 post_date">{item.resolution_number}</div>
                                 <div className="">
-                                <Link to={`/postanovlenie/${item.id}/`} className="post3 post_link post_date">
-                                    {language === "ru" ? item.title_ru : item.title_kg}
-                                </Link>
+                                    <Link
+                                        to={`${item.files[0].file}`}
+                                        className="post3 post_link post_date"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {language === 'ru' ? item.title_ru : item.title_kg}
+                                    </Link>
                                 </div>
                             </>
                         ))
