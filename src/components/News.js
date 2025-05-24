@@ -74,7 +74,7 @@ const News = ({ language, setLanguage }) => {
                                 ))}
                             </Swiper>
                         </div>
-                        <div className="new_text" dangerouslySetInnerHTML={{ __html: language == "ru"
+                        <p className="new_text" dangerouslySetInnerHTML={{ __html: language == "ru"
                                 ?
                                 newsItem.content_ru || 'Новость без заголовка'
                                 :

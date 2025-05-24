@@ -70,16 +70,14 @@ const Novosty = ({language}) => {
                                                         <p className="date-month">{month}</p>
                                                         <span className="date-year">{year}</span>
                                                     </div>
-                                                    <div className="home_col4">
-                                                        <div className="home_title2">
+                                                        <h3 className="home_title2">
                                                             {language == "ru"
                                                                 ?
                                                                 item.title_ru || 'Новость без заголовка'
                                                                 :
                                                                 item.title_kg || 'Новость без заголовка'
                                                             }
-                                                        </div>
-                                                    </div>
+                                                        </h3>
                                                 </div>
                                             </div>
                                         </div>

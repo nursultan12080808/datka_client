@@ -24,6 +24,11 @@ body {
     --black_blue: #031c3a;
     --light_gray: #8f8f8f;
 }
+
+.mb200{
+    margin-bottom: 200px;
+}
+
 .h100{
     height: 170px;
 }
@@ -829,4 +834,28 @@ footer {
     border: 0;
     font-size: 16px;
     padding: 10px;
+}
+.bxs-chevron-down{
+    margin-top: 4px;
+}
+
+.glava_img{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+.article{
+    margin: 0;
+    padding: 0;
+}
+.home_col4{
+    text-align: center;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+figure{
+    margin: 0;
+    padding: 0;
 }
