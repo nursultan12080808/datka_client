@@ -32,23 +32,23 @@ const Postanovlenieone = ({ language }) => {
                             :
                             <div className="cadr_h1"><div className="tire">—</div>{newsItem.title_kg}</div>
                     }
-
-                    <div className="post_text" dangerouslySetInnerHTML={{
-                        __html: language == "ru"
-                            ?
-                            newsItem.content_ru || 'Новость без заголовка'
+                    {
+                        <div className='post_item'>
+                            <h5>Номер постановление: {newsItem.resolution_number}</h5>
+                            <h5>Дата публикации: {newsItem.resolution_date}</h5>
+                        </div>
+                    }
+                    {
+                        language == "ru" ?
+                            newsItem.files.map(item => (
+                                <a href={`${item.file}`}>{newsItem.title_ru}</a>
+                            ))
                             :
-                            newsItem.content_kg || 'Новость без заголовка'
-                    }} />
-
-                    <div className="post_text" dangerouslySetInnerHTML={{
-                        __html: language == "ru"
-                            ?
-                            newsItem.notes_ru || 'Новость без заголовка'
-                            :
-                            newsItem.notes_kg || 'Новость без заголовка'
-                    }} />
-
+                            newsItem.files.map(item => (
+                                <a href={`${item.file}`}>{newsItem.title_kg}</a>
+                            ))
+                    }
+                    
                 </div>
             </div>
         </header>
