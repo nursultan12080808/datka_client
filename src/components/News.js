@@ -79,6 +79,8 @@ const News = ({ language, setLanguage }) => {
                                 newsItem.content_ru || 'Новость без заголовка'
                                 :
                                 newsItem.content_kg || 'Новость без заголовка'}} />
+                        <a className='mb' href={newsItem.source_link}>Ссылка: {newsItem.source_link}</a>
+                        
                     </div>
                 </div>
             </div>

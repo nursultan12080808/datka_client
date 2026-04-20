@@ -859,3 +859,7 @@ figure{
     margin: 0;
     padding: 0;
 }
+.mb{
+    margin-bottom: 50px;
+    color: #2E5AA8;
+}
